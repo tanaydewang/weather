@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>European City Weather Forecast</title>
+    <link rel="stylesheet" href="css/master.css">
+</head>
+<body>
+    <header>
+        <h1>7-Day European Weather Forecast</h1>
+    </header>
+
+    <main>
+        <section class="city-selection">
+            <label for="city-select">Select a City:</label>
+            <select id="city-select">
+                <option value="">--Please choose an option--</option>
+                </select>
+            <button id="get-forecast-btn">Get Forecast</button>
+        </section>
+
+        <section class="weather-display">
+            <h2 id="selected-city-name"></h2>
+            <div id="forecast-container">
+                <p id="loading-message" style="display: none;">Loading forecast...</p>
+                <p id="error-message" style="display: none; color: red;">Could not retrieve weather data. Please try again or choose another city.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 European Travel Agency. Powered by <a href="http://www.7timer.info/doc.php?lang=en" target="_blank">7Timer API</a>.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

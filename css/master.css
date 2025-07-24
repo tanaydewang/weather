@@ -1,0 +1,228 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e9f0f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #2c3e50; /* Darker blue/grey */
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2em;
+}
+
+main {
+    flex-grow: 1;
+    padding: 30px;
+    max-width: 1200px; /* Increased max-width for more cards */
+    margin: 30px auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.city-selection {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+#city-select {
+    padding: 12px 18px;
+    font-size: 17px;
+    border: 1px solid #a4c3e3;
+    border-radius: 6px;
+    margin-right: 15px;
+    background-color: #f8fbff;
+    transition: border-color 0.3s ease;
+}
+
+#city-select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+#get-forecast-btn {
+    padding: 12px 25px;
+    font-size: 17px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#get-forecast-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+#get-forecast-btn:active {
+    transform: translateY(0);
+}
+
+.weather-display {
+    text-align: center;
+}
+
+#selected-city-name {
+    margin-bottom: 30px;
+    color: #007bff;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+#forecast-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to next line on smaller screens */
+    justify-content: center; /* Centers cards horizontally */
+    gap: 20px; /* Space between cards */
+}
+
+.weather-card {
+    background-color: #fefefe;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    width: 150px; /* Adjusted width for more compact cards */
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.weather-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.weather-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #444;
+    font-size: 1.2em;
+}
+
+.weather-icon {
+    width: 70px; /* Increased icon size */
+    height: 70px;
+    margin: 0 auto 15px auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Specific Weather Icon Styles (YOU NEED TO PROVIDE ALL THESE IMAGES IN THE 'images/' FOLDER) */
+/* Naming convention: icon-[7timer-weather-code].png */
+.icon-clear { background-image: url('../images/clear.png'); }
+.icon-pcloudy { background-image: url('../images/partly_cloudy.png'); } /* Check if you have partly_cloudy.png */
+.icon-cloudy { background-image: url('../images/cloudy.png'); }
+.icon-lightrain { background-image: url('../images/lightrain.png'); } /* Corrected to match your uploaded file */
+.icon-rain { background-image: url('../images/rain.png'); } /* Check if you have rain.png */
+.icon-snow { background-image: url('../images/snow.png'); } /* Check if you have snow.png */
+.icon-ts { background-image: url('../images/thunderstorm.png'); } /* Check if you have thunderstorm.png */
+.icon-tsrain { background-image: url('../images/thunderstorm_rain.png'); } /* Check if you have thunderstorm_rain.png */
+.icon-fog { background-image: url('../images/fog.png'); }
+.icon-ishower { background-image: url('../images/ishower.png'); } /* Corrected to match your uploaded file */
+.icon-mshower { background-image: url('../images/moderate_showers.png'); } /* Check if you have moderate_showers.png */
+.icon-oshower { background-image: url('../images/occasional_showers.png'); } /* Check if you have occasional_showers.png */
+.icon-sleet { background-image: url('../images/sleet.png'); } /* Check if you have sleet.png */
+.icon-wind { background-image: url('../images/windy.png'); } /* Check if you have windy.png */
+.icon-default { background-image: url('../images/default.png'); } /* Fallback icon - Check if you have default.png */
+
+
+.weather-card p {
+    margin: 8px 0;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.temperature {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+
+footer {
+    background-color: #34495e; /* Darker grey/blue */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    font-size: 0.95em;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    color: #92bce2;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+#loading-message, #error-message {
+    margin-top: 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+#error-message {
+    color: #dc3545 !important; /* Bootstrap red */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    main {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    #city-select, #get-forecast-btn {
+        width: calc(100% - 30px); /* Full width minus padding */
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .weather-card {
+        width: 120px; /* Smaller cards for smaller screens */
+        padding: 15px;
+    }
+
+    .weather-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .weather-card {
+        width: calc(50% - 30px); /* Two cards per row */
+        margin: 10px; /* Adjust margin for spacing */
+    }
+
+    #selected-city-name {
+        font-size: 1.5em;
+    }
+}
