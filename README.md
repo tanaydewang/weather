@@ -1,2 +1,2 @@
 # weather 
-know the weather upto next 7 days
+7-Day European Weather Forecast
