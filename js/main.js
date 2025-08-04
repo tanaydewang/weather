@@ -112,9 +112,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const dayOfMonth = dateForCard.getDate(); // e.g., 24
 
             const weatherIconClass = getWeatherIconClass(dayData.weather);
-            // 7Timer returns temperature in Kelvin. Convert to Celsius.
-            const minTempC = (dayData.temp2m.min - 273.15).toFixed(0);
-            const maxTempC = (dayData.temp2m.max - 273.15).toFixed(0);
+            // The 7Timer API returns temperature in Celsius, so no conversion is needed.
+            // We use .toFixed(0) to round the temperature to a whole number.
+            const minTempC = dayData.temp2m.min.toFixed(0);
+            const maxTempC = dayData.temp2m.max.toFixed(0);
             const windSpeed = dayData.wind10m_max; // Max wind speed at 10m in m/s
 
             const weatherDescription = getWeatherDescription(dayData.weather);
